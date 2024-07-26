@@ -155,9 +155,10 @@ public class PlanetRepositoryTest {
     }
 
     @Test
-    public void removePlanet_WithUnexistingId_ReturnsNotFound() {
+    public void removePlanet_WithUnexistingId_ThrowsException() {
         //só verificar se quando a gente chama esse método, passando uma
         //id inexistente
+
         assertThatThrownBy(() -> planetRepository.deleteById(1L)).isInstanceOf(EmptyResultDataAccessException.class);
     }
 }
