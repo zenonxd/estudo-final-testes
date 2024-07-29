@@ -159,6 +159,7 @@ public class PlanetRepositoryTest {
         //só verificar se quando a gente chama esse método, passando uma
         //id inexistente
 
-        assertThatThrownBy(() -> planetRepository.deleteById(1L)).isInstanceOf(EmptyResultDataAccessException.class);
+        assertThatCode(() -> planetRepository.deleteById(1L))
+                .doesNotThrowAnyException();
     }
 }

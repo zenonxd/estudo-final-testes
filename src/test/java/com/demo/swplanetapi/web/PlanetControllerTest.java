@@ -132,7 +132,8 @@ public class PlanetControllerTest {
 
         mockMvc
                 .perform(
-                        get("/planets?" + String.format("terrain=%s%climate=%s", TATOOINE.getTerrain(), TATOOINE.getClimate())))
+                        get("/planets?"
+                                + String.format("terrain=%s&climate=%s", TATOOINE.getTerrain(), TATOOINE.getClimate())))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0]").value(TATOOINE));
