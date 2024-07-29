@@ -1,3 +1,17 @@
+<h1 align="center">
+  StarWars Planet API (sw-planet-api)
+</h1>
+
+<p align="center">
+  <a href="#-technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-introdução">Introdução</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<p align="center">
+  <img alt="Licença" src="https://img.shields.io/static/v1?label=Licença&message=MIT&color=8257E5&labelColor=000000">
+  <img src="https://img.shields.io/static/v1?label=Curso na Udemy&message=Testes automatizados na prática com Spring Boot&color=8257E5&labelColor=000000" alt="Testes automatizados na prática com Spring Boot" />
+</p>
+
 # Estudo Final Testes 
 
 ## Referência: Testes automatizados na prática com Spring Boot
@@ -8,20 +22,60 @@
 Durante o estudo, os códigos mudam pois geralmente é ensinado algo básico onde depois iremos implementar o que de fato
 é utilizado no mercado de trabalho. Tome cuidado ao considerar códigos do início do estudo, se atente ao código final.
 
-## Tópicos
+## ✨ Technologies
 
+- [Mysql](https://dev.mysql.com/downloads/mysql/)
+- [Java](https://www.oracle.com/java/technologies/downloads/)
+- [Maven](https://maven.apache.org/download.cgi)
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Spring Testing](https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html#testing-introduction)
+- [JUnit 5](https://junit.org/junit5/docs/current/user-guide/)
+- [Mockito](https://site.mockito.org)
+- [AssertJ](https://github.com/assertj/assertj)
+- [Hamcrest](http://hamcrest.org/JavaHamcrest/)
+- [Jacoco](https://github.com/jacoco/jacoco)
+- [Pitest](https://pitest.org)
+
+
+## 📌 Tópicos
+
+
+<!-- TOC -->
+* [Estudo Final Testes](#estudo-final-testes-)
+  * [Referência: Testes automatizados na prática com Spring Boot](#referência-testes-automatizados-na-prática-com-spring-boot)
+  * [Dica para leitura:](#dica-para-leitura)
+  * [✨ Technologies](#-technologies)
+  * [📌 Tópicos](#-tópicos)
+* [💻 Introdução](#-introdução)
+  * [✅ Separando as fases de teste](#-separando-as-fases-de-teste)
+    * [Para fazermos isso com o Maven, utilizaremos plugins](#para-fazermos-isso-com-o-maven-utilizaremos-plugins)
+      * [🧪 Testes de Integração (mais pesados) - Plugin Failsafe](#-testes-de-integração-mais-pesados---plugin-failsafe)
+  * [🧪 Testes de cobertura com o Jacoco](#-testes-de-cobertura-com-o-jacoco)
+    * [🛠️ Pequenos ajustes](#-pequenos-ajustes)
+      * [Método main não sendo chamado](#método-main-não-sendo-chamado)
+      * [toString não sendo coberto em Planet](#tostring-não-sendo-coberto-em-planet)
+      * [QueryBuilder - Construtor não sendo chamado](#querybuilder---construtor-não-sendo-chamado)
+  * [🧪 Teste Mutantes com Pitest](#-teste-mutantes-com-pitest)
+    * [Dentro de Domain](#dentro-de-domain)
+      * [Planet.java](#planetjava)
+      * [QueryBuilder.java](#querybuilderjava)
+  * [🧪 Testes de integração com Testcontainers](#-testes-de-integração-com-testcontainers)
+    * [Como utilizar o banco do test containers e não o de desenvolvimento?](#como-utilizar-o-banco-do-test-containers-e-não-o-de-desenvolvimento)
+  * [🧪 Testes Parametrizados](#-testes-parametrizados)
+* [📖 Resumo](#-resumo)
+<!-- TOC -->
 
 <hr>
 
 
-# Introdução
+# 💻 Introdução
 
 Agora, faremos alguns toques finais no projeto, pensando no ambiente de produção. Alguns detalhes a mais, para termos
 certeza de que testamos tudo o que era possível, evitando erros.
 
 <hr>
 
-## Separando as fases de teste
+## ✅ Separando as fases de teste
 
 Separaremos os testes mais pesados em uma fase específica de testes e os testes mais leves em outra fase.
 
@@ -44,7 +98,7 @@ Por padrão, os testes que possuem o sufixo "Test", rodam na mesma fase. Portant
 unidade e outro para de integração.
 
 
-- #### Testes de Unidade (mais leves) - Plugin SureFire
+- #### 🧪 Testes de Unidade (mais leves) - Plugin SureFire
 ```xml
 <!-- Unit Tests -->
 <plugin>
@@ -57,7 +111,7 @@ unidade e outro para de integração.
 </plugin>
 ```
 
-#### Testes de Integração (mais pesados) - Plugin Failsafe
+#### 🧪 Testes de Integração (mais pesados) - Plugin Failsafe
 ```xml
 <!-- Integration Tests -->
 <plugin>
@@ -79,7 +133,7 @@ configurados.
 
 <hr>
 
-## Testes de cobertura com o Jacoco
+## 🧪 Testes de cobertura com o Jacoco
 
 Como saber se testamos todos os caminhos possíveis que a nossa aplicação poderia seguir? A cobertura irá checar se 
 todos os fluxos de códigos que foram implementados estão sendo exercitados pelo teste. Isso são **testes de cobertura**.
@@ -127,7 +181,7 @@ Será gerado um pacote "site", nele, abrimos o arquivo index.html que conterá o
 ![img_1.png](img_1.png)
 <hr>
 
-### Pequenos ajustes
+### 🛠️ Pequenos ajustes
 
 #### Método main não sendo chamado
 É bacana a gente verificar que, por exemplo, o sw.planetapi teve uma cobertura muito baixa, e é um pacote raiz da
@@ -208,7 +262,7 @@ Relatório:
 
 <hr>
 
-## Teste Mutantes com Pitest
+## 🧪 Teste Mutantes com Pitest
 
 É possivel aferir a qualidade de um Switch de testes? A ideia dos testes é: **houve alguma mudança no código? Se sim,
 ele deve quebrar. Se mudarmos o código e ele não quebrar, nem existe motivo pro teste existir.**
@@ -320,7 +374,7 @@ Isso nós dá a cobertura de 100% dos testes mutantes, cobrindo o MÁXIMO de cen
 
 <hr>
 
-## Testes de integração com Testcontainers
+## 🧪 Testes de integração com Testcontainers
 
 Nesse projeto, utilizamos um .properties dentro dos testes para utilizar um banco dedicado a testes. O problema dessa
 abordagem é que dependemos de um banco DEDICADO para fazer os nossos testes. Ou seja, se alguem está mexendo no 
@@ -359,20 +413,100 @@ rodarmos esse teste. Para isso, instalaremos o docker.
 Com ele, podemos baixar as imagens que o teste precisa (mysql) e executar o teste sem nenhum problema.
 
 ### Como utilizar o banco do test containers e não o de desenvolvimento?
-1. Tiraremos username e senha;
-2. Mudar URL do banco, é só colocar depois dos :
+1. Tiraremos username e senha do application-it.properties;
+2. Mudar URL do banco, veja: 
+
+É só colocar depois dos ":", um "tc:";
+
+![img_14.png](img_14.png)
+
+E assim, usaremos o banco mySQL do test containers.
+
+Depois de "mysql", colocaremos ":8.0", informando a sua versão. Com isso, o testcontainers baixará uma imagem do mysql
+nessa versão.
+
+Após isso a versão ":///db". "Db" seria o nome do banco de teste. Aqui, pode ser qualquer coisa, pois a imagem irá subir
+e depois sumir.
+
+Por fim "?TC_IMAGE_TAG=8.0" informando qual tag a imagem mysql será baixada. Url final:
+```properties
+spring.datasource.url=jdbc:tc:mysql:8.0///db?TC_IMAGE_TAG=8.0
+```
+Ao executar todos os testes do PlanetIT (testes de integração), nos logs o docker irá baixar a imagem exatamente da
+versão 8.0, conforme especificamos.
 <hr>
 
-## Testes Parametrizados
+## 🧪 Testes Parametrizados
+
+E se precisássemos de um gerador de dados inválidos para realizar alguns testes?
+
+Podemos criar um método estátioco com várias Stream de argumentos, veja:
+```java
+    private static Stream<Arguments> providesInvalidPlanets() {
+        //como são atributos obrigatórios, qualquer "null" presenta, dará exception
+        return Stream.of(
+                Arguments.of(new Planet(null, "climate", "terrain")),
+                Arguments.of(new Planet("name", null, "terrain")),
+                Arguments.of(new Planet("name", "climate", null)),
+                Arguments.of(new Planet(null, null, "terrain")),
+                Arguments.of(new Planet(null, "climate", null)),
+                Arguments.of(new Planet("name", null, null)),
+                Arguments.of(new Planet(null, null, null)),
+                Arguments.of(new Planet("", "climate", "terrain")),
+                Arguments.of(new Planet("name", "", "terrain")),
+                Arguments.of(new Planet("name", "climate", "")),
+                Arguments.of(new Planet("", "", "terrain")),
+                Arguments.of(new Planet("", "climate", "")),
+                Arguments.of(new Planet("name", "", "")),
+                Arguments.of(new Planet("", "", ""))
+        );
+    }
+```
+
+Com isso, temos todas as combinações de possíveis cenários de algum dado ser inválido.
+
+Após isso, só precisamos chamar este método dentro do teste, para que estes dados sejam usados na execução do teste.
+
+Para isso, usaremos a anotação @ParameterizedTest e @MethodSource(informando o nome do método).
+
+Código antes de ser alterado:
+
+```java
+    @Test
+    public void createPlanet_WithInvalidData_ThrowsException() {
+        Planet emptyPlanet = new Planet(null, null, null);
+        Planet invalidPlanet = new Planet("", "", "");
+        
+        assertThatThrownBy(() -> planetRepository.save(invalidPlanet)).isInstanceOf(RuntimeException.class);
+        assertThatThrownBy(() -> planetRepository.save(emptyPlanet)).isInstanceOf(RuntimeException.class);
+    }
+```
+
+Depois:
+
+Apagamos as duas intanciações de emptyPlanet e invalidPlanet, e passamos um planet como parâmetro, testando
+somente ele. Esse "planet", passado irá assumir o valor de cada argumento hipotético criado ali em cima. Ele vai rodar
+uma vez para cada combinação criada.
+
+```java
+    @ParameterizedTest
+    @MethodSource("providesInvalidPlanets")
+    public void createPlanet_WithInvalidData_ThrowsException(Planet planet) {
+        
+        assertThatThrownBy(() -> planetRepository.save(planet)).isInstanceOf(RuntimeException.class);
+    }
+```
 
 <hr>
 
-# Resumo
+# 📖 Resumo
+
+Lembrar de separar as [fases de testes](#-separando-as-fases-de-teste) (entre leves e pesados).
 
 Lembrar de colocar o Jacoco para ignorar a [application](#método-main-não-sendo-chamado)
 
 Pitest para testar [mutações](#teste-mutantes-com-pitest) em testes de unidade.
 <hr>
 
-## Fim
+
 
