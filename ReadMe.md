@@ -45,22 +45,34 @@ Durante o estudo, os códigos mudam pois geralmente é ensinado algo básico ond
   * [Dica para leitura:](#dica-para-leitura)
   * [✨ Technologies](#-technologies)
   * [📌 Tópicos](#-tópicos)
+<hr>
+
 * [💻 Introdução](#-introdução)
   * [✅ Separando as fases de teste](#-separando-as-fases-de-teste)
     * [Para fazermos isso com o Maven, utilizaremos plugins](#para-fazermos-isso-com-o-maven-utilizaremos-plugins)
-      * [🧪 Testes de Integração (mais pesados) - Plugin Failsafe](#-testes-de-integração-mais-pesados---plugin-failsafe)
-  * [🧪 Testes de cobertura com o Jacoco](#-testes-de-cobertura-com-o-jacoco)
-    * [🛠️ Pequenos ajustes](#-pequenos-ajustes)
-      * [Método main não sendo chamado](#método-main-não-sendo-chamado)
-      * [toString não sendo coberto em Planet](#tostring-não-sendo-coberto-em-planet)
-      * [QueryBuilder - Construtor não sendo chamado](#querybuilder---construtor-não-sendo-chamado)
-  * [🧪 Teste Mutantes com Pitest](#-teste-mutantes-com-pitest)
-    * [Dentro de Domain](#dentro-de-domain)
-      * [Planet.java](#planetjava)
-      * [QueryBuilder.java](#querybuilderjava)
-  * [🧪 Testes de integração com Testcontainers](#-testes-de-integração-com-testcontainers)
-    * [Como utilizar o banco do test containers e não o de desenvolvimento?](#como-utilizar-o-banco-do-test-containers-e-não-o-de-desenvolvimento)
+<hr>
+
+* [🧪 Testes de Integração (mais pesados) - Plugin Failsafe](#-testes-de-integração-mais-pesados---plugin-failsafe)
+<hr>
+
+* [🧪 Testes de cobertura com o Jacoco](#-testes-de-cobertura-com-o-jacoco)
+  * [🛠️ Pequenos ajustes](#-pequenos-ajustes)
+    * [Método main não sendo chamado](#método-main-não-sendo-chamado)
+    * [toString não sendo coberto em Planet](#tostring-não-sendo-coberto-em-planet)
+    * [QueryBuilder - Construtor não sendo chamado](#querybuilder---construtor-não-sendo-chamado)
+<hr>
+
+* [🧪 Teste Mutantes com Pitest](#-teste-mutantes-com-pitest)
+  * [Dentro de Domain](#dentro-de-domain)
+    * [Planet.java](#planetjava)
+    * [QueryBuilder.java](#querybuilderjava)
+<hr>
+
+* [🧪 Testes de integração com Testcontainers](#-testes-de-integração-com-testcontainers)
+  * [Como utilizar o banco do test containers e não o de desenvolvimento?](#como-utilizar-o-banco-do-test-containers-e-não-o-de-desenvolvimento)
   * [🧪 Testes Parametrizados](#-testes-parametrizados)
+<hr>
+
 * [📖 Resumo](#-resumo)
 <!-- TOC -->
 
